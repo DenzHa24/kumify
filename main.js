@@ -10,7 +10,9 @@
 
         // get all yt thumbnails
         function getThumbnails() {
-            const thumbnails = document.querySelectorAll("ytd-thumbnail:not(.ytd-video-preview, .ytd-rich-grid-slim-media) a > yt-image > img.yt-core-image:only-child:not(.yt-core-attributed-string__image-element),.ytp-videowall-still-image:not([style*='extension:'])");
+            //console.log("Looking for thumbnails...");
+            const thumbnails = document.querySelectorAll('img[src*="ytimg.com"]');
+            //console.log("Found thumbnails:", thumbnails.length);
 
             // For each image in the thumbnails array (which is thumbnail), get its image index, its base url, and then send it to 
             // apply thumbnails for a merge
@@ -18,6 +20,7 @@
                 const index = getRandomImageIndex();
                 // Get the URL of the random image
                 let OverlayUrl = getOverlayUrl(index);
+                //console.log("Applying overlay:", OverlayUrl);
                 changeThumbnail(thumbnail, OverlayUrl);
             });
         }

@@ -2,7 +2,7 @@
   "_comment": "this is p much the base stuff",
   "manifest_version": 3,
   "name": "Kumify",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "icons": {
     "128": "assets/icon/IconKumiko.png"
   },
