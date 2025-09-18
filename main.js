@@ -1,5 +1,5 @@
 (() => {
-    const numImages = 102;
+    const numImages = 103;
 
     // See whether overlays are even enabled
     chrome.storage.local.get(['overlayEnabled'], (result) => {
@@ -26,31 +26,47 @@
         }
 
         // Apply new (and improved) thumbnails
-        function changeThumbnail(thumbnail, OverlayUrl) {
+       function changeThumbnail(thumbnail, OverlayUrl) {
+    if (thumbnail.dataset.overlayApplied) return;
 
-            if (thumbnail.dataset.overlayApplied) return;
+    const parent = thumbnail.parentElement;
+    if (!parent) return;
 
-            // Create the overlay image
-            const overlay = document.createElement("img");
-            overlay.src = OverlayUrl;
-            overlay.style.position = "absolute";
-            overlay.style.top = overlay.style.left = "0";
-            overlay.style.width = overlay.style.height = "100%";
-            overlay.style.zIndex = "0";
-            overlay.style.opacity = opacity; // Apply the opacity here
-            // Overlay is appended as a child of the original image's parent element (the thing we did query select), making it go on top
-            thumbnail.parentElement.appendChild(overlay);
-            thumbnail.dataset.overlayApplied = "true";
-        }
+    // Ensure stacking context
+    if (getComputedStyle(parent).position === "static") {
+        parent.style.position = "relative";
+    }
+
+    // Create the overlay image
+    const overlay = document.createElement("img");
+    overlay.src = OverlayUrl;
+    overlay.style.position = "absolute";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.zIndex = "9999";   // put it on top
+    overlay.style.pointerEvents = "none"; // don’t block clicks
+    overlay.style.opacity = opacity;
+    overlay.style.objectFit = "cover"; // keep aspect ratio, animates fine
+
+    parent.appendChild(overlay);
+    thumbnail.dataset.overlayApplied = "true";
+
+    // Debug load state
+    overlay.onload = () => console.log("GIF loaded:", OverlayUrl);
+    overlay.onerror = () => console.error("GIF failed to load:", OverlayUrl);
+}
 
         // Get random image index
         function getRandomImageIndex() {
-            return Math.floor(Math.random() * (numImages) + 1);
+            return 103;
+            //return Math.floor(Math.random() * (numImages) + 1);
         }
 
         // Get URL of the overlay image
         function getOverlayUrl(index) {
-            return chrome.runtime.getURL(`assets/images/${index}.PNG`);
+            return chrome.runtime.getURL(`assets/images/${index}.gif`);
         }
 
         // Observe the entire body of the document for changes

@@ -25,9 +25,11 @@
     {
       "resources": [
         "assets/images/*.PNG",
+        "assets/images/*.gif",
         "assets/popup/*.jpeg",
         "assets/popup/*.webp",
-        "assets/popup/*.png"
+        "assets/popup/*.png",
+        "assets/popup/*.gif"
       ],
       "matches": ["<all_urls>"]
     }
