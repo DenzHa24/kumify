@@ -29,7 +29,8 @@
         "assets/popup/*.jpeg",
         "assets/popup/*.webp",
         "assets/popup/*.png",
-        "assets/popup/*.gif"
+        "assets/popup/*.gif",
+        "assets/gifs/*.gif"
       ],
       "matches": ["<all_urls>"]
     }
