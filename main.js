@@ -93,7 +93,7 @@
         }
         // Get URL of the overlay image
         function getOverlayUrl(index) {
-            return chrome.runtime.getURL(`assets/images/${index}.PNG`);
+            return chrome.runtime.getURL(`assets/images/${index}.png`);
         }
         // Get URL of the overlay gif
         function getOverlayUrlGif(index) {
