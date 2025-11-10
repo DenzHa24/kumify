@@ -1,5 +1,5 @@
 (() => {
-    const numImages = 102;
+    const numImages = 130;
     const numGifs = 1;
     const totalAssets = numImages + numGifs;
 
