@@ -78,8 +78,8 @@
     thumbnail.dataset.overlayApplied = "true";
 
     // Debug load state
-    overlay.onload = () => console.log("overlay loaded:", OverlayUrl);
-    overlay.onerror = () => console.error("overlay failed to load:", OverlayUrl);
+    //overlay.onload = () => console.log("overlay loaded:", OverlayUrl);
+    //overlay.onerror = () => console.error("overlay failed to load:", OverlayUrl);
 }
 
         // Get random image index
