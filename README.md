@@ -11,3 +11,6 @@ Mrbeastify: https://github.com/MagicJinn/MrBeastify-Youtube
 
 If anybody wants to help add images to kumify. (You’ll be credited of course) please send 1280x720 transparent Kumiko PNGs to the following email dyingisbad@gmail.com any help is appreciated!
 
+Image/gif Contributors!
+friendlybaron 
+laconchadetumadreallboys
