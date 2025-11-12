@@ -1,6 +1,6 @@
 (() => {
     const numImages = 131;
-    const numGifs = 1;
+    const numGifs = 4;
     const totalAssets = numImages + numGifs;
 
     // See whether overlays are even enabled
