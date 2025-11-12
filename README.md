@@ -13,4 +13,4 @@ If anybody wants to help add images to kumify. (You’ll be credited of course) 
 
 Image/gif Contributors!
 friendlybaron 
-laconchadetumadreallboys
+lautiboke
